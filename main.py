@@ -1,29 +1,32 @@
 def check_winner(player1, player2):
-    print(player1)
-    print(player2)
+    print(f"Player 1 selection: {player1}")
+    print(f"Player 2 selection: {player2}")
 
-    if player1 == "rock":
-        if player2 == "rock":
-            print("It's a draw")
-        if player2 == "paper":
-            print("Player 2 wins")
-        if player2 == "scissors":
-            print("Player 1 wins")
+    outcomes = {
+        "rock": {
+            "rock": "draw",
+            "paper": "loss",
+            "scissors": "win"
+        },
+        "paper": {
+            "rock": "win",
+            "paper": "draw",
+            "scissors": "loss"
+        },
+        "scissors": {
+            "rock": "loss",
+            "paper": "win",
+            "scissors": "draw"
+        }
+    }
 
-    if player1 == "paper":
-        if player2 == "rock":
-            print("Player 1 wins")
-        if player2 == "paper":
-            print("It's a draw")
-        if player2 == "scissors":
-            print("Player 2 wins")
+    player1_outcome = outcomes[player1][player2]
 
-    if player1 == "scissors":
-        if player2 == "rock":
-            print("Player 2 wins")
-        if player2 == "paper":
-            print("Player 1 wins")
-        if player2 == "scissors":
-            print("It's a draw")
+    if player1_outcome == "win":
+        print("Player 1 Wins!")
+    elif player1_outcome == "loss":
+        print("Player 2 Wins!")
+    else:
+        print("Its a Draw!")
 
 check_winner("rock", "scissors")
