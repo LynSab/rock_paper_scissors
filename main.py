@@ -20,13 +20,14 @@ def check_winner(player1, player2):
         }
     }
 
-    player1_outcome = outcomes[player1][player2]
-
-    if player1_outcome == "win":
-        print("Player 1 Wins!")
-    elif player1_outcome == "loss":
-        print("Player 2 Wins!")
+    if player1 not in outcomes or player2 not in outcomes:
+        print("Invalid selection, please try again")
     else:
-        print("Its a Draw!")
+        player1_outcome = outcomes[player1][player2]
 
-check_winner("rock", "scissors")
+        if player1_outcome == "win":
+            print("Player 1 Wins!")
+        elif player1_outcome == "loss":
+            print("Player 2 Wins!")
+        else:
+            print("Its a Draw!")
